@@ -1,3 +1,5 @@
+// Program that manages lamps
+
 class Lamp {
   
   // stores the value for light
@@ -35,7 +37,10 @@ class Main {
     // turn on the light by
     // calling method turnOn()
     led.turnOn();
-
+	
+	// setting voltage
+	led.setVoltage(2.7f);
+	
     // turn off the light by
     // calling method turnOff()
     halogen.turnOff();
