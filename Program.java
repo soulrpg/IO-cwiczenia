@@ -4,17 +4,21 @@ class Lamp {
   // true if light is on
   // false if light is off
   boolean isOn;
+  
+  public Lamp(boolean isON) {
+	  this.isOn = isOn;
+  }
 
   // method to turn on the light
   void turnOn() {
-    isOn = true;
+    isOn = !isOn;
     System.out.println("Light on? " + isOn);
 
   }
 
   // method to turnoff the light
   void turnOff() {
-    isOn = false;
+    isOn = !isOn;
     System.out.println("Light on? " + isOn);
   }
 }
@@ -23,8 +27,10 @@ class Main {
   public static void main(String[] args) {
 
     // create objects led and halogen
-    Lamp led = new Lamp();
-    Lamp halogen = new Lamp();
+    Lamp led = new Lamp(true);
+    Lamp halogen = new Lamp(true);
+	
+	
 
     // turn on the light by
     // calling method turnOn()
