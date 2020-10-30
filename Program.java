@@ -6,6 +6,7 @@ class Lamp {
   // true if light is on
   // false if light is off
   boolean isOn;
+  float voltage;
   
   public Lamp(boolean isON) {
 	  this.isOn = isOn;
@@ -22,6 +23,10 @@ class Lamp {
   void turnOff() {
     isOn = !isOn;
     System.out.println("Light on? " + isOn);
+  }
+  
+  void setVoltage(float voltage) {
+	this.voltage = voltage;
   }
 }
 
