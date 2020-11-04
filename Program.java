@@ -34,6 +34,8 @@ class Main {
   public static void main(String[] args) {
 
     // create objects led and halogen
+	
+	System.out.println("Main function start");
     Lamp led = new Lamp(true);
     Lamp halogen = new Lamp(true);
 	
