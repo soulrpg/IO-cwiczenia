@@ -16,19 +16,21 @@ import java.util.Collections;
 
 public class ExpenseRepositoryTest {
     private ExpenseRepository expRp;
-    private IFancyDatabase database;
 
-    @BeforeEach
-    void setUp(){
-        database = mock(IFancyDatabase.class);
-        when(database.queryAll()).thenReturn(Collections.emptyList());
+    @Test
+    void testLoadExpensesPrev(){
+        IFancyDatabase database = new MyDatabase();
         expRp = new ExpenseRepository(database);
         expRp.loadExpenses();
+        assertEquals(expRp.getExpenses(), Collections.emptyList());
     }
-
 
     @Test
     void testLoadExpenses(){
+        IFancyDatabase database = mock(IFancyDatabase.class);
+        when(database.queryAll()).thenReturn(Collections.emptyList());
+        expRp = new ExpenseRepository(database);
+        expRp.loadExpenses();
         InOrder inOrder = inOrder(database);
         inOrder.verify(database).connect();
         inOrder.verify(database).queryAll();
@@ -38,6 +40,10 @@ public class ExpenseRepositoryTest {
 
     @Test
     void testSaveExpenses(){
+        IFancyDatabase database = mock(IFancyDatabase.class);
+        when(database.queryAll()).thenReturn(Collections.emptyList());
+        expRp = new ExpenseRepository(database);
+        expRp.loadExpenses();
         for(int i = 0; i < 5; i++) {
             expRp.addExpense(new Expense());
         }
