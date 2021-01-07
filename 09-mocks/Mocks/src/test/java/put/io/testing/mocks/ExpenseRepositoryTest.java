@@ -51,7 +51,8 @@ public class ExpenseRepositoryTest {
         InOrder inOrder = inOrder(database);
         inOrder.verify(database).connect();
         inOrder.verify(database).queryAll();
+        inOrder.verify(database, times(5)).persist(any(Expense.class));
         inOrder.verify(database).close();
-        verify(database, times(5)).persist(any(Expense.class));
+
     }
 }
